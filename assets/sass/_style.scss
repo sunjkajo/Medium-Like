@@ -1,0 +1,370 @@
+//var
+$white: rgb(215, 215, 215);
+$yellow: rgba(255,255,0,0.3);
+$black: rgb(25,25,25);
+$green: rgb(46, 204, 113);
+$xs: 320px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+body, h1, h2, h3, h4, h5, h6, p, span {
+  @include reset-box-model;
+}
+body {
+  font-family: 'Gentium Book Basic', serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+h1 {
+  font-size: 60px;
+  color: white;
+  @media (max-width: $md) {
+    font-size: 50px;
+  }
+  @media (max-width: $sm) {
+    font-size: 40px;
+  }
+}
+h2 {
+  font-size: 35px;
+  color: white;
+  @media (max-width: $md) {
+    font-size: 30px;
+  }
+  @media (max-width: $sm) {
+    font-size: 25px;
+  }
+}
+h3, q {
+  font-size: 30px;
+  color: $white;
+  font-style: italic;
+  line-height: 1.5;
+  @media (max-width: $md) {
+    font-size: 25px;
+  }
+  @media (max-width: $sm) {
+    font-size: 20px;
+  }
+}
+a:hover, a:visited, a:focus {
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+.no-padding {
+  padding: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
+}
+.container-fluid {
+  overflow-x: hidden;
+}
+.page-wrap {
+  width: 40%;
+  margin: 0 auto;
+  @media (max-width: $lg) {
+    width: 50%;
+  }
+  @media (max-width: $md) {
+    width: 60%;
+  }
+  @media (max-width: $sm) {
+    width: 80%;
+  }
+}
+//carousel
+.owl-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+.owl-item {
+  width: 100%;
+  height: 100vh;
+}
+.bg {
+  position: relative;
+  height: 100vh;
+}
+.first-bg {
+  background: {
+    image: image-url("header1.jpg");
+    repeat: no-repeat;
+    position: center center;
+  };
+}
+.second-bg {
+  background: {
+    image: image-url("header2.jpg");
+    repeat: no-repeat;
+    position: center center;
+  };
+}
+.third-bg {
+  background: {
+    image: image-url("header3.jpg");
+    repeat: no-repeat;
+    position: center center;
+  };
+}
+.bg {
+  @include background-size(cover);
+}
+//header
+.absolute-box {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  .txt-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    p {
+      font-size: 13px;
+      color: $white;
+    }
+    .header-title {
+      border-bottom: 1px solid $white;
+      position: absolute;
+      bottom: 100px;
+      width: 100%;
+    }
+    .author-socialLogo {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+    }
+    .author {
+      span {
+        font-weight: bold;
+      }
+    }
+    .social-logo {
+      nav {
+        text-align: right;
+        @media (max-width: $sm) {
+          text-align: center;
+          margin-top: 13px;
+        }
+        li {
+          list-style-type: none;
+          display: inline-block;
+          margin-left: 13px;
+          @media (max-width: $sm) {
+            margin-left: 0;
+            margin-right: 13px;
+          }
+          a {
+            @include link-colors(white, yellow, white, white, white);
+          }
+        }
+      }
+    }
+  }
+}
+//main
+.main {
+  p, li {
+    font-size: 18px;
+    color: $black;
+    line-height: 1.9em;
+    @media (max-width: $md) {
+      font-size: 17px;
+    }
+    @media (max-width: $sm) {
+      font-size: 16px;
+    }
+  }
+  p:nth-child(1) {
+    margin-top: 50px;
+  }
+  p:nth-child(5), li {
+    margin-top: 33px;
+  }
+  li:last-of-type {
+    margin-bottom: 33px;
+  }
+  #quote {
+    text-align: center;
+    margin: 33px auto;
+    q {
+      color: rgba(0,0,0,0.7);
+    }
+  }
+  #back-to-top {
+    text-align: center;
+    cursor: pointer;
+    width: 88px;
+    margin: 0 auto 21px;
+    p, i {
+      font-size: 13px;
+      color: gray;
+      font-weight: bold;
+    }
+    &:hover {
+      background: $yellow;
+      p, i {
+        color: red;
+      }
+    }
+  }
+}
+//footer
+footer {
+  #share {
+    text-align: center;
+    display: table;
+    width: 100%;
+    padding: 130px 0;
+    background: {
+      image: image-url("gradient.jpg");
+      repeat: no-repeat;
+      position: center center;
+    };
+    @include background-size(cover);
+    @media (max-width: $lg) {
+      padding: 120px 0;
+    }
+    @media (max-width: $md) {
+      padding: 110px 0;
+    }
+    @media (max-width: $sm) {
+      padding: 100px 0;
+    }
+    .shareBtn {
+      font-size: 13px;
+      color: $green;
+      line-height: 2;
+      vertical-align: middle;
+      background: transparent;
+      border: 3px solid $green;
+      border-radius: 30px;
+      padding: 21px 26px;
+      font-weight: bold;
+      i {
+        margin-right: 10px;
+      }
+      &:hover {
+        background: $green;
+        color: white;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .box {
+    &.left {
+      background: {
+        image: image-url("left-footer.jpg");
+        repeat: no-repeat;
+        position: center center;
+      };
+      @include background-size(cover);
+    }
+    &.right {
+      background: {
+        image: image-url("right-footer.jpg");
+        repeat: no-repeat;
+        position: center center;
+      };
+      @include background-size(cover);
+    }
+    height: 50vh;
+    color: white;
+    padding: 80px;
+    opacity: 0.8;
+    @media (max-height: 600px) {
+      padding: 60px;
+    }
+    @media (max-height: 400px) {
+      padding: 40px;
+    }
+    &:hover {
+      opacity: 1;
+    }
+    h4 {
+      margin-bottom: 70px;
+      @media (max-height: 600px) {
+        margin-bottom: 20px;
+      }
+    }
+    h2 {
+      display: inline-block;
+      position: relative;
+      padding-bottom: 3px;
+      &::after {
+        content: '';
+        display: block;
+        margin: auto;
+        height: 3px;
+        width: 0;
+        background: transparent;
+        @include transition-property(all);
+        @include transition-duration(0.5s);
+        @include transition-timing-function(ease);
+      }
+      &:hover {
+        color: yellow;
+        &::after {
+          width: 100%;
+          background: $white;
+        }
+      }
+    }
+  }
+}
+// form
+form {
+  text-align: center;
+  input, button {
+    height: 33px;
+    width: 250px;
+    margin: 18px 0;
+    border-radius: 1px;
+    border: 1px solid white;
+    text-align: center;
+  }
+  button {
+    background: $green;
+    border-color: $green;
+    width: 150px;
+    font-size: 21px;
+    font-weight: 700;
+    color: white;
+    &:hover {
+      background: shade($green, 21%);
+      border-color: shade($green, 21%);
+    }
+  }
+}
+//fixed title
+.stick {
+  margin-top: 0 !important;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.3);
+  text-align: center;
+  width: 40%;
+  @media (max-width: $lg) {
+    width: 50%;
+  }
+  @media (max-width: $md) {
+    width: 60%;
+  }
+  @media (max-width: $sm) {
+    width: 80%;
+  }
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+}
+
+
